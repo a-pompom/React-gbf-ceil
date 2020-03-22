@@ -1,0 +1,45 @@
+//flex-box
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-right {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+@mixin flex-left {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+@mixin flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin flex-table {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+// レスポンシブ用
+@mixin responsive($breakpoint: pc) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+  	}
+}
+
+// デバイスが縦長か横長かでレイアウトを作り分ける用
+@mixin for-portrait {
+	@media screen and (orientation: portrait) { @content; }
+}
+@mixin for-landscape {
+	@media screen and (orientation: landscape) { @content; }
+}

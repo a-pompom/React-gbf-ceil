@@ -1,0 +1,20 @@
+.landscape-visible {
+
+    @include for-landscape() {
+        display: block !important;
+    }
+    @include for-portrait() {
+        display: none !important;
+    }
+
+}
+.portrait-visible {
+
+    @include for-landscape() {
+        display: none !important;
+    }
+    @include for-portrait() {
+        display: block !important;
+    }
+
+}
