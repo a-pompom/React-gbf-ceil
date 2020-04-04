@@ -1,0 +1,59 @@
+.CalcArea {
+
+    @include responsive(sp) {
+        width: 100%;
+    }
+    @include responsive(tb) {
+        width: 100%;
+    }
+
+    // PCでのみ横並びとするので、小さめに設定
+    @include responsive(pc) {
+        width: 60%;
+    }
+
+    .CeilInput {
+
+        width: 100%;
+
+        padding-bottom: 30px;
+        border-bottom: 1px solid $dark;
+
+    }
+}
+
+.CeilResult {
+
+    @include responsive(sp) {
+        width: 100%;
+        height: 300px;
+
+        margin-top: 20px;
+    }
+    @include responsive(pc) {
+        width: 60%;
+        margin-top: 10%;
+    }
+
+    // ルリアと結果表示は間隔を空けた方が見映えがいい感じ
+    &__image {
+        margin-right: 10%;
+    }
+
+    // スマホ・タブレット画面ではパーセント表示部分と他の表示の隙間が狭く見映えがよろしくないので、
+    // 多少余白を確保
+    &__Rest {
+
+        .Rest {
+
+            &__percentage {
+
+                @include responsive(sp-tb) {
+                    margin-top: 20px;
+                }
+
+            }
+        }
+
+    }
+}

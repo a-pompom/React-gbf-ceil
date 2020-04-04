@@ -1,0 +1,28 @@
+.MainImage {
+
+    // スマホ・タブレットは縦、PCは計算部分と並べて横並びに
+    @include responsive(sp) {
+        width: 100%;
+        height: 300px;
+    }
+    @include responsive(tb) {
+        width: 100%;
+        height: 400px;
+    }
+    @include responsive(pc) {
+        width: 40%;
+        height: 100%;
+    }
+
+    // メイン画像は中央に寄せた方が見映えが良さそう
+    &__crystal {
+
+        margin: 10px auto;
+    }
+
+    &__character {
+
+        margin: 10px auto;
+    }
+
+}

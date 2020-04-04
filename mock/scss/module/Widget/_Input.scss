@@ -1,0 +1,7 @@
+.Input {
+	$color: ("textColor": $darkest, "accentColor":$blue, "nonActiveColor": $light);
+	$scale: ("width": 300px, "height": 28px);
+    @include input-simple($color, $scale, 1.0rem);
+    
+    display: inline-block;
+}
