@@ -1,0 +1,322 @@
+@charset "UTF-8";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 90%;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #4d464f; }
+
+* {
+  box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+p {
+  line-height: 1rem; }
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #4d464f; }
+  a:checked {
+    color: #4d464f; }
+
+input[type="text"], input[type="password"] {
+  -webkit-appearance: none;
+  border: 0; }
+  input[type="text"]:focus, input[type="password"]:focus {
+    background: none;
+    outline: none; }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none; }
+
+@media screen and (orientation: landscape) {
+  .landscape-visible {
+    display: block !important; } }
+@media screen and (orientation: portrait) {
+  .landscape-visible {
+    display: none !important; } }
+
+@media screen and (orientation: landscape) {
+  .portrait-visible {
+    display: none !important; } }
+@media screen and (orientation: portrait) {
+  .portrait-visible {
+    display: block !important; } }
+
+/*
+下線のみを持つシンプルなテキスト入力
+フォーカスでプレースホルダが移動し、アクティブになったことを表すために
+下線の色が変化する
+@parameter $color {map} (
+	textColor: 入力テキストの色
+	accentColor: アクティブ時にボーダー・プレースホルダに付与される色　
+	nonActiveColor: デフォルドで表示される色
+)
+@parameter $scale {map} (
+	perWidth: 入力要素の幅 パーセント形式で記述
+	height: 入力要素の高さ
+)
+@parameter $fontSize {number} 文字の大きさ
+*/
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10%; }
+  .Header__title {
+    margin: 10px 20px; }
+  .Header__button {
+    margin: 10px 20px; }
+
+.Container {
+  width: 100%;
+  height: 90%; }
+  @media screen and (orientation: landscape) {
+    .Container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; } }
+  @media screen and (min-width: 959px) {
+    .Container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; } }
+  @media screen and (max-width: 559px) {
+    .Container .MainImage {
+      width: 100%;
+      height: 300px; } }
+  @media screen and (min-width: 559px) and (max-width: 959px) {
+    .Container .MainImage {
+      width: 100%;
+      height: 400px; } }
+  @media screen and (min-width: 959px) {
+    .Container .MainImage {
+      width: 40%;
+      height: 100%; } }
+  .Container .MainImage__crystal {
+    margin: 10px auto; }
+  .Container .MainImage__character {
+    margin: 10px auto; }
+  @media screen and (max-width: 559px) {
+    .Container .CalcArea {
+      width: 100%; } }
+  @media screen and (min-width: 559px) and (max-width: 959px) {
+    .Container .CalcArea {
+      width: 100%; } }
+  @media screen and (min-width: 959px) {
+    .Container .CalcArea {
+      width: 60%; } }
+  .Container .CalcArea .CeilInput {
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #9CA5B9; }
+  @media screen and (max-width: 559px) {
+    .Container .CeilResult {
+      width: 100%;
+      height: 300px;
+      margin-top: 20px; } }
+  @media screen and (min-width: 959px) {
+    .Container .CeilResult {
+      width: 60%;
+      margin-top: 10%; } }
+  .Container .CeilResult__image {
+    margin-right: 10%; }
+  @media screen and (max-width: 959px) {
+    .Container .CeilResult__Rest .Rest__percentage {
+      margin-top: 20px; } }
+
+.Header {
+  border-bottom: 1px solid #e3e3e3; }
+  @media screen and (max-width: 559px) {
+    .Header__title {
+      font-size: 1.6rem; } }
+  @media screen and (min-width: 559px) and (max-width: 959px) {
+    .Header__title {
+      font-size: 2.3rem; } }
+  @media screen and (min-width: 959px) {
+    .Header__title {
+      font-size: 3.4rem; } }
+  .Header__button {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #0086C0;
+    border: 1px solid #0086C0;
+    transition: .7s;
+    width: 80px;
+    height: 40px;
+    font-size: 1.3rem;
+    font-weight: bold; }
+    .Header__button:hover {
+      background-color: #0086C0;
+      color: #FFFFFF; }
+
+.MainImage__crystal {
+  display: block;
+  max-height: 20%; }
+.MainImage__character {
+  display: block;
+  max-height: 70%; }
+
+.CeilResult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+  .CeilResult__image {
+    display: inline-block;
+    max-height: 200px; }
+  .CeilResult .Rest__crystal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem; }
+  .CeilResult .Rest__ticket {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem; }
+  .CeilResult .Rest__percentage {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.3rem; }
+    @media screen and (orientation: landscape) {
+      .CeilResult .Rest__percentage {
+        position: absolute;
+        bottom: 10px;
+        right: -50%; } }
+
+.CalcRow {
+  position: relative; }
+  .CalcRow__image {
+    display: inline-block;
+    max-height: 100px; }
+  .CalcRow__count {
+    position: absolute;
+    top: 38px;
+    right: 10%;
+    font-size: 1.7rem;
+    font-weight: bold; }
+  .CalcRow__button {
+    font-weight: bold; }
+    @media screen and (max-width: 559px) {
+      .CalcRow__button {
+        width: 59px;
+        height: 24px;
+        font-size: 1.0rem; } }
+    @media screen and (min-width: 559px) and (max-width: 959px) {
+      .CalcRow__button {
+        width: 73px;
+        height: 30px;
+        font-size: 1.2rem; } }
+    @media screen and (min-width: 959px) {
+      .CalcRow__button {
+        width: 118px;
+        height: 40px;
+        font-size: 1.5rem; } }
+
+.button--reset, .button--jewelry {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #0086C0;
+  border: 1px solid #0086C0;
+  transition: .7s; }
+  .button--reset:hover, .button--jewelry:hover {
+    background-color: #0086C0;
+    color: #FFFFFF; }
+
+.button--ticket {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #EAB947;
+  border: 1px solid #EAB947;
+  transition: .7s; }
+  .button--ticket:hover {
+    background-color: #EAB947;
+    color: #FFFFFF; }
+
+.button--10ticket {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #C82136;
+  border: 1px solid #C82136;
+  transition: .7s; }
+  .button--10ticket:hover {
+    background-color: #C82136;
+    color: #FFFFFF; }
+
+.Input {
+  height: 28px;
+  display: inline-block;
+  position: relative;
+  display: inline-block; }
+  .Input input, .Input textarea {
+    width: 100%;
+    height: 28px;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 12px 0;
+    border-bottom: 2px solid #C8CCD4;
+    color: #223254;
+    transition: all .15s ease; }
+    .Input input:hover, .Input textarea:hover {
+      background-color: rgba(34, 50, 84, 0.03); }
+    .Input input:not(:placeholder-shown) ~ span[class$="__placeholder"], .Input textarea:not(:placeholder-shown) ~ span[class$="__placeholder"] {
+      color: #0086C0;
+      transform: translateY(-15.4px) scale(0.85); }
+    .Input input:focus ~ span[class$="__placeholder"], .Input textarea:focus ~ span[class$="__placeholder"] {
+      color: #0086C0;
+      transform: translateY(-15.4px) scale(0.85); }
+      .Input input:focus ~ span[class$="__placeholder"] + span[class$="__border"], .Input textarea:focus ~ span[class$="__placeholder"] + span[class$="__border"] {
+        transform: scaleX(1); }
+  .Input__placeholder {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    color: #C8CCD4;
+    transform-origin: 0 0;
+    transition: all 0.2s ease; }
+  .Input__border {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #0086C0;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all .15s ease; }
+
+/*# sourceMappingURL=style.css.map */

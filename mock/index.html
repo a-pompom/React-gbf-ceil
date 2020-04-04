@@ -5,12 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="グラブルの天井計算機">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="assets/others/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap&subset=japanese" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
     <title>グラブル天井計算機</title>
     </head>
 <body>
-    <div>
+
+    <header class="Header">
+        <h1 class="Header__title">
+            グラブル天井計算機
+        </h1>
+        <button class="Header__button button--reset">
+            Reset
+        </button>
+    </header>
+
+    <div class="Container">
+
+        <div class="MainImage">
+            <img src="./assets/Crystal.png" class="MainImage__crystal">
+            <img src="./assets/Djeeta.png" class="MainImage__character">
+        </div>
+
+        <div class="CalcArea">
+
+            <div class="CeilInput">
+
+                <div class="CalcRow">
+                    <img src="./assets/Crystal.png" class="CalcRow__image">
+                    <h2 class="CalcRow__count">100個</h2>
+
+                    <button class="CalcRow__button button--jewelry">+300</button>
+                    <button class="CalcRow__button button--jewelry">+1000</button>
+                    <button class="CalcRow__button button--jewelry">+3000</button>
+                    <button class="CalcRow__button button--jewelry">+10000</button>
+
+                </div>
+
+                <div class="CalcRow">
+                    <img src="./assets/1.png" class="CalcRow__image">
+                    <h2 class="CalcRow__count">10枚</h2>
+
+                    <button class="CalcRow__button button--ticket">+1</button>
+                    <button class="CalcRow__button button--ticket">+5</button>
+                    <button class="CalcRow__button button--ticket">+10</button>
+                    <button class="CalcRow__button button--ticket">+50</button>
+                </div>
+                <div class="CalcRow">
+                    <img src="./assets/10.png" class="CalcRow__image">
+                    <h2 class="CalcRow__count">1枚</h2>
+
+                    <button class="CalcRow__button button--10ticket">+1</button>
+                    <button class="CalcRow__button button--10ticket">+5</button>
+                    <button class="CalcRow__button button--10ticket">+10</button>
+                </div>
+
+            </div>
+
+
+            <div class="CeilResult">
+                <img src="./assets/Lyria.png" class="CeilResult__image">
+
+                <div class="CeilResult__Rest">
+                    <div class="Rest__crystal">
+                        <img src="./assets/Crystal.png" width="100">
+                        <h4>900</h4>
+                        <h4>&nbsp;/&nbsp;</h4>
+                        <h4>90000</h4>
+                    </div>
+                    <div class="Rest__ticket">
+                        <img src="./assets/1.png" width="100">
+                        <h4>10</h4>
+                        <h4>&nbsp;/&nbsp;</h4>
+                        <h4>300</h4>
+                    </div>
+                    <div class="Rest__percentage">
+                        <h4>10%</h4>
+                        <h4>&nbsp;/&nbsp;</h4>
+                        <h4>100%</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
