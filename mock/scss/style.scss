@@ -9,4 +9,12 @@
 @import './tools/mixin';
 @import './tools/control';
 
+// util
+@import './tools/utilMixin/utilMixin';
+
 // layout
+@import './layout/layout';
+
+// module
+@import './module/module';
+@import './module/widget';

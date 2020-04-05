@@ -1,0 +1,17 @@
+.Container {
+
+    @include for-landscape {
+        @include flex-left;
+    }
+
+    @include responsive(pc) {
+        @include flex-left;
+    }
+
+    width: 100%;
+    height: 90%;
+
+    @import './MainImage';
+
+    @import './CalcArea';
+}

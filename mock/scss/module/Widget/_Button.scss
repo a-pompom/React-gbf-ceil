@@ -1,0 +1,14 @@
+.button--reset, .button--jewelry {
+
+    @include hoverButton($blue, $white);
+}
+
+.button--ticket {
+
+    @include hoverButton($yellow, $white);
+}
+
+.button--10ticket {
+
+    @include hoverButton($red, $white);
+}
