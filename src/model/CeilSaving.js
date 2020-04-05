@@ -7,7 +7,7 @@
 const ceilSaving = {
     jewelry: 0,
     ticket: 0,
-    ticket10: 0
+    ticket10: 0,
 }
 
 export default ceilSaving
