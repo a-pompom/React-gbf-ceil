@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CeilContext } from '../context/CeilContext'
 
 import Button from './widgets/Button'
 
-const Ticket = ({amount, added}) => {
+const MAX_TICKET = 300
 
-    const MAX_TICKET = 300
+const Ticket = () => {
 
     const ticketIncrease = [1, 5, 10, 50]
 
-    const ticketAdded = (increase) => {
+    const ceilContext = useContext(CeilContext)
+
+    const amount = ceilContext.ceilSaving.ticket
+    const isCeilReached = ceilContext.isCeilReached
+
+    const added = (increase) => {
+
+        if (isCeilReached) {
+            return
+        }
 
         if (amount === MAX_TICKET) {
             return
@@ -19,7 +29,8 @@ const Ticket = ({amount, added}) => {
             increase = MAX_TICKET - amount
         }
 
-        added(increase, 'ticket')
+        ceilContext.addSaving(increase, 'ticket')
+
     }
 
      const ticketButtons =  (
@@ -31,7 +42,7 @@ const Ticket = ({amount, added}) => {
                                 key={increase}
                                 increase={increase}
                                 buttonClassName='button--ticket'
-                                clicked={ticketAdded}
+                                clicked={added}
                             />
                     
                 })}

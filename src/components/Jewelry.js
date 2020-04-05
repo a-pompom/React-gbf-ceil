@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CeilContext } from '../context/CeilContext'
 
 import Button from './widgets/Button'
 
-const Jewelry = ({amount, added}) => {
+const MAX_JEWELRY = 90000
 
-    const MAX_JEWELRY = 90000
+const Jewelry = () => {
+
+    const ceilContext = useContext(CeilContext)
+
+    const amount = ceilContext.ceilSaving.jewelry
+    const isCeilReached = ceilContext.isCeilReached
 
     const jewelryIncrease = [300, 1000, 3000, 10000]
 
-    const jewelryAdded = (increase) => {
+    const added = (increase) => {
+
+        if (isCeilReached) {
+            return
+        }
 
         if ((amount + increase) > MAX_JEWELRY) {
             return
         }
 
-        added(increase, 'jewelry')
+        ceilContext.addSaving(increase, 'jewelry')
     }
 
      const jewelryButtons =  (
@@ -26,7 +36,7 @@ const Jewelry = ({amount, added}) => {
                                 key={increase}
                                 increase={increase}
                                 buttonClassName='button--jewelry'
-                                clicked={jewelryAdded}
+                                clicked={added}
                             />
                     
                 })}

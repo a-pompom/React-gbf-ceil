@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CeilContext } from '../context/CeilContext'
 
 const JEWELRY_RATE = {'ticket': 300, 'ticket10': 3000}
 const TICKET_RATE = {'jewelry': 1/300, 'ticket10': 10}
@@ -6,7 +7,10 @@ const TICKET_RATE = {'jewelry': 1/300, 'ticket10': 10}
 const CEIL_JEWELRY = 90000
 const CEIL_TICKET = 300
 
-const CeilResult = ({ceilSaving, ceilReached}) => {
+const CeilResult = () => {
+
+    const ceilContext = useContext(CeilContext)
+    const ceilSaving = ceilContext.ceilSaving
 
     const jewelryAmount =  ceilSaving.jewelry
     const ticketAmount =   ceilSaving.ticket
@@ -19,7 +23,7 @@ const CeilResult = ({ceilSaving, ceilReached}) => {
     progressRate = progressRate >= 100 ? 100 : progressRate
 
     if (progressRate === 100) {
-        ceilReached()
+        ceilContext.reachedCeil()
     }
 
     return (

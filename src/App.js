@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { CeilContext } from './context/CeilContext'
+
 import CeilSaving from './model/CeilSaving'
 
 import Input from './components/Input'
@@ -12,57 +14,68 @@ const App = () => {
 
     const addSaving = (increase, target) => {
 
-        const ceilSavingMod = {...ceilSaving}
-        ceilSavingMod[target] += increase
+        const addedCeilSaving = {...ceilSaving}
+        addedCeilSaving[target] += increase
 
-        setCeilSaving(ceilSavingMod)
+        setCeilSaving(addedCeilSaving)
     }
 
     const reachedCeil = () => {
         setCeilReached(true)
     }
 
+    const reset = () => {
+
+        const emptySaving = {...CeilSaving}
+
+        setCeilSaving(emptySaving)
+        setCeilReached(false)
+    }
+
     return (
 
         <React.Fragment>
-            <header className="Header">
-                <h1 className="Header__title">
-                    グラブル天井計算機
-                </h1>
-                <button className="Header__button button--reset">
-                    Reset
-                </button>
-            </header>
+            <CeilContext.Provider 
+                value={{
+                    ceilSaving,
+                    isCeilReached,
+                    addSaving,
+                    reachedCeil
+                }}
+            >
 
-            <div className="Container">
+                {/* ヘッダ部分 リセット機能を持つ */}
+                <header className="Header">
+                    <h1 className="Header__title">
+                        グラブル天井計算機
+                    </h1>
+                    <button onClick={reset} className="Header__button button--reset">
+                        Reset
+                    </button>
+                </header>
 
-                <div className="MainImage">
-                    <img src={`${process.env.PUBLIC_URL}/Crystal.png`} className="MainImage__crystal" alt="メイン画像-宝晶石" />
-                    <img src={`${process.env.PUBLIC_URL}/Djeeta.png`} className="MainImage__character" alt="メイン画像-ジータ" />
+                <div className="Container">
+
+                    {/* メイン画像 アイキャッチ用 */}
+                    <div className="MainImage">
+                        <img src={`${process.env.PUBLIC_URL}/Crystal.png`} className="MainImage__crystal" alt="メイン画像-宝晶石" />
+                        <img src={`${process.env.PUBLIC_URL}/Djeeta.png`} className="MainImage__character" alt="メイン画像-ジータ" />
+                    </div>
+
+                    {/* 計算処理部分 */}
+                    <div className="CalcArea">
+
+                        <Input />
+
+                        <CeilResult />
+
+                    </div>
+
                 </div>
 
-                <div className="CalcArea">
-
-                    <Input 
-                        ceilSaving={ceilSaving}
-                        isCeilReached={isCeilReached}
-                        added={addSaving}
-                    />
-
-                    <CeilResult 
-                        ceilSaving={ceilSaving}
-                        ceilReached={reachedCeil}
-                    />
-
-                </div>
-
-            </div>
-
+            </CeilContext.Provider>
         </React.Fragment>
 
     )
-
-
 }
-
 export default App
