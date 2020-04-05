@@ -9,9 +9,17 @@ import CeilResult from './components/CeilResult'
 
 const App = () => {
 
+    // 天井貯金の状態
     const [ceilSaving, setCeilSaving] = useState(CeilSaving)
+    // 天井に到達したか
     const [isCeilReached, setCeilReached] = useState(false)
 
+    /**
+     * 天井貯金を加算
+     * 
+     * @param {Number} increase 増分
+     * @param {String} target 増加対象
+     */
     const addSaving = (increase, target) => {
 
         const addedCeilSaving = {...ceilSaving}
@@ -20,10 +28,16 @@ const App = () => {
         setCeilSaving(addedCeilSaving)
     }
 
+    /**
+     * 天井に到達
+     */
     const reachedCeil = () => {
         setCeilReached(true)
     }
 
+    /**
+     * 初期化
+     */
     const reset = () => {
 
         const emptySaving = {...CeilSaving}
@@ -35,6 +49,7 @@ const App = () => {
     return (
 
         <React.Fragment>
+
             <CeilContext.Provider 
                 value={{
                     ceilSaving,
@@ -78,4 +93,5 @@ const App = () => {
 
     )
 }
+
 export default App

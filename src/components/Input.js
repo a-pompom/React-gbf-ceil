@@ -4,6 +4,9 @@ import Jewelry from './Jewelry'
 import Ticket from './Ticket'
 import Ticket10 from './Ticket10'
 
+/**
+ * 入力エリア
+ */
 const Input = () => {
 
 

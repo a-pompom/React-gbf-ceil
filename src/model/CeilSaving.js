@@ -1,5 +1,6 @@
 /**
  * 天井貯金の保持状態
+ * 
  * @property {Number} jewelry : 宝晶石
  * @property {Number} ticket : 単発チケ
  * @property {Number} ticket10 : 10連チケ
