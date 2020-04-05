@@ -1,33 +1,25 @@
 import React, { useContext } from 'react'
 import { CeilContext } from '../context/CeilContext'
+import { useIncreaseLogic } from '../hooks/useIncreaseLogic'
 
 import Button from './widgets/Button'
 
 const MAX_JEWELRY = 90000
+const TARGET = 'jewelry'
 
 const Jewelry = () => {
 
-    const ceilContext = useContext(CeilContext)
-
-    const amount = ceilContext.ceilSaving.jewelry
-    const isCeilReached = ceilContext.isCeilReached
-
     const jewelryIncrease = [300, 1000, 3000, 10000]
+
+    const ceilContext = useContext(CeilContext)
+    const [amount, getIncrease] = useIncreaseLogic(TARGET, MAX_JEWELRY)
 
     const added = (increase) => {
 
-        if (isCeilReached) {
-            return
-        }
-
-        if ((amount + increase) > MAX_JEWELRY) {
-            return
-        }
-
-        ceilContext.addSaving(increase, 'jewelry')
+        ceilContext.addSaving(getIncrease(increase), TARGET)
     }
 
-     const jewelryButtons =  (
+    const jewelryButtons =  (
 
         <React.Fragment>
             {jewelryIncrease.map((increase) => {
@@ -42,7 +34,7 @@ const Jewelry = () => {
                 })}
 
         </React.Fragment>
-     )
+    )
 
     return (
 

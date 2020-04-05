@@ -1,39 +1,25 @@
 import React, { useContext } from 'react'
 import { CeilContext } from '../context/CeilContext'
+import { useIncreaseLogic } from '../hooks/useIncreaseLogic'
 
 import Button from './widgets/Button'
 
 const MAX_TICKET = 30
+const TARGET = 'ticket10'
 
 const Ticket10 = () => {
 
     const ticketIncrease = [1, 5, 10]
 
     const ceilContext = useContext(CeilContext)
-
-    const amount = ceilContext.ceilSaving.ticket10
-    const isCeilReached = ceilContext.isCeilReached
+    const [amount, getIncrease] = useIncreaseLogic(TARGET, MAX_TICKET)
 
     const added = (increase) => {
 
-        if (isCeilReached) {
-            return
-        }
-
-        if (amount === MAX_TICKET) {
-            return
-        }
-
-        if ((amount + increase) > MAX_TICKET) {
-
-            increase = MAX_TICKET - amount
-        }
-
-        ceilContext.addSaving(increase, 'ticket10')
-
+        ceilContext.addSaving(getIncrease(increase), TARGET)
     }
 
-     const ticketButtons =  (
+    const ticketButtons =  (
 
         <React.Fragment>
             {ticketIncrease.map((increase) => {

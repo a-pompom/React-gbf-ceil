@@ -6,10 +6,11 @@ import Ticket10 from './Ticket10'
 
 const Input = () => {
 
+
     return (
 
         <div className="CeilInput">
-
+            
             <Jewelry />
 
             <Ticket/>
